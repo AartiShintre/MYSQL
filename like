@@ -1,0 +1,63 @@
+
+mysql> select ename from emp where ename like "s%";
++-------+
+| ename |
++-------+
+| SMITH |
+| SCOTT |
++-------+
+2 rows in set (0.01 sec)
+
+mysql> select ename from emp where ename like "%s";
++-------+
+| ename |
++-------+
+| JONES |
+| ADAMS |
+| JAMES |
++-------+
+3 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like "%r";
++--------+
+| ename  |
++--------+
+| TURNER |
+| MILLER |
++--------+
+2 rows in set (0.01 sec)
+
+mysql> select ename from emp where ename like "r%";
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like "%a%";
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| BLAKE  |
+| CLARK  |
+| ADAMS  |
+| JAMES  |
++--------+
+7 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like "%a%a%";
++-------+
+| ename |
++-------+
+| ADAMS |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp where ename like ___R%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%' at line 1
+mysql> select ename from emp where ename like "___R%";
++-------+
+| ename |
++-------+
+| CLARK |
++-------+
+1 row in set (0.00 sec)
